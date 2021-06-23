@@ -1,2 +1,15 @@
 # Audio-to-Sign-Language-Converter
-Technology used: Python 3
+Introduction: 
+It is said that Sign language is the mother language of deaf people. This 
+includes the combination of hand movements, arms or body and facial 
+expressions. There are 135 types of sign languages all over the world. 
+Some of them are American Sign Language (ASL), Indian Sign Language 
+(ISL), British Sign Language (BSL), Australian Sign Language (ASL) and 
+many more. We are using Indian Sign Language in this project. This 
+system allows the deaf community to enjoy all sort of things that 
+normal people do from daily interaction to accessing the information. 
+This application takes speech as input, converts it into text and then 
+displays the Indian Sign Language images. 
+ The front end of the system is designed using tkinter. 
+ Speech which is taken as input through microphone uses PyAudio and Speech Recognition
+package. 
