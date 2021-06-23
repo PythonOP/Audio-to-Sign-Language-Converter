@@ -20,7 +20,7 @@ def conversionAction():
             i += 1
         else:
             img.append(x)
-            img[z] = Image.open("../Practice/" + x + ".jpg")
+            img[z] = Image.open("../Project File/Sign_Pictures/"+x+".jpg")
             img[z] = img[z].resize((75, 75), Image.ANTIALIAS)
             img[z] = ImageTk.PhotoImage(img[z])
             l = Label(f2, image=img[z])
