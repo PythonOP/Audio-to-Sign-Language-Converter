@@ -10,7 +10,6 @@ img = list()
 def conversionAction():
     for widgets in f2.winfo_children():
         widgets.destroy()
-    global imghjkhkjhj
     text = t1.get()
     i = 1
     z = 0
