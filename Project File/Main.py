@@ -10,6 +10,7 @@ root.geometry('1200x700')
 # All fonts used
 ButtonFont = Font(family="Helvetica", size="18", weight="normal")
 LabelFont = Font(family="Microsoft New Tai Lue", size="12", weight="normal")
+TextFont = Font(family="Microsoft New Tai Lue", size="30", weight="bold")
 
 img = list()
 
@@ -66,21 +67,29 @@ openningLogo = None
 def Main():
     for widgets in root.winfo_children():
         widgets.destroy()
-    global x
-    x = Image.open("../Project File/background.jpg")
-    x = x.resize((1600,800), Image.ANTIALIAS)
-    x = ImageTk.PhotoImage(x)
-    l = Label(root, image=x)
-    l.place(x=0, y=0)
+    global bg
+    bg = Image.open("../Project File/background.jpg")
+    bg = bg.resize((1600, 800), Image.ANTIALIAS)
+    bg = ImageTk.PhotoImage(bg)
+    c = Canvas(root, width=1200, height=700)
+    c.pack(fill=BOTH, expand=True)
+
+    c.create_image(0, 0, image=bg, anchor='nw')
+    c.create_text(800, 350, text='Audio to Sign Langauge Converter', font=TextFont)
 
     global openningLogo
     openningLogo = Image.open("../Project File/NielitLogo.jpg")
     openningLogo = openningLogo.resize((300, 180), Image.ANTIALIAS)
     openningLogo = ImageTk.PhotoImage(openningLogo)
-    Label(root, image=openningLogo).place(x=580, y=80)
-    Button(root, text='About', font=ButtonFont, padx=40, border=4).place(x=80, y=700)
-    Button(root, text='Credits', font=ButtonFont, padx=40, border=4).place(x=670, y=700)
-    Button(root, text='Start', font=ButtonFont, command=start, padx=40, border=4).place(x=1200, y=700)
+    c.create_image(600, 100, image=openningLogo, anchor='nw')
+
+    b1 = Button(root, text='About', font=ButtonFont, padx=40, border=4)
+    b2 = Button(root, text='Credits', font=ButtonFont, padx=40, border=4)
+    b3 = Button(root, text='Start', font=ButtonFont, command=start, padx=40, border=4)
+
+    c.create_window(180, 600, window=b1, anchor='nw')
+    c.create_window(650, 600, window=b2, anchor='nw')
+    c.create_window(1200, 600, window=b3, anchor='nw')
 
 
 Main()
