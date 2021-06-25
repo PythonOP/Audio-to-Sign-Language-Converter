@@ -6,6 +6,7 @@ root.title("Text to Sign Language Converter")
 root.state("zoomed")
 root.geometry('1200x700')
 
+
 # All fonts used
 ButtonFont = Font(family="Helvetica", size="18", weight="normal")
 LabelFont = Font(family="Microsoft New Tai Lue", size="12", weight="normal")
@@ -59,10 +60,19 @@ def start():
     Button(root, text="Back", font=ButtonFont, padx=40, border=4, command=Main).pack()
 
 
+openningLogo = None
+
 
 def Main():
     for widgets in root.winfo_children():
         widgets.destroy()
+    global x
+    x = Image.open("../Project File/background.jpg")
+    x = x.resize((1600,800), Image.ANTIALIAS)
+    x = ImageTk.PhotoImage(x)
+    l = Label(root, image=x)
+    l.place(x=0, y=0)
+
     global openningLogo
     openningLogo = Image.open("../Project File/NielitLogo.jpg")
     openningLogo = openningLogo.resize((300, 180), Image.ANTIALIAS)
