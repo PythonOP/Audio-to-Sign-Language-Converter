@@ -6,3 +6,8 @@ sign languages all over the world. Some of them are American Sign Language (ASL)
 We are using Indian Sign Language in this project. This system allows the deaf community to enjoy all sort of things that normal people do from daily interaction to accessing the information. This application takes speech as input, converts it into text and then displays the Indian Sign Language images. 
 * The front end of the system is designed using tkinter. 
 * The input is given in form of speech using PyAudio and SpeechRecognition package.
+
+# Packages Required
+* pip install pyaudio
+* pip install speechrecognition
+* pip install pillow
