@@ -7,7 +7,7 @@ We are using Indian Sign Language in this project. This system allows the deaf c
 
 
 ## Technology Requirements
-* Python 3.8
+* Python 3.0.X
 * IDE: Pycharm Community Edition
 * OS: Ubuntu distribution of Linux or Windows 7 or above
 
