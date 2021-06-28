@@ -15,7 +15,3 @@ We are using Indian Sign Language in this project. This system allows the deaf c
 * pip install pyaudio
 * pip install SpeechRecognition
 * pip install pillow
-
-##  Basic working
-* The front end of the system is designed using tkinter. 
-* The input is given in form of speech using PyAudio and SpeechRecognition package.
