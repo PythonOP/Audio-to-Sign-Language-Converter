@@ -22,17 +22,6 @@ openningLogo = None
 def start():
     for widgets in root.winfo_children():
         widgets.destroy()
-    # Text Frame
-    inputframe = LabelFrame(root, text="Audio")
-    inputframe.pack(fill=BOTH)
-
-    global micLabel
-    micLabel = Image.open('../Project File/mic.png')
-    micLabel = micLabel.resize((60, 100), Image.ANTIALIAS)
-    micLabel = ImageTk.PhotoImage(micLabel)
-    b = Button(inputframe, image=micLabel, command=lambda: speech(signdisplayerframe), activebackground='#7ad468',
-               height=100, width=200)
-    b.pack()
 
     # Sign Frame
     signdisplayerframe = LabelFrame(root, text="Sign Language")
@@ -40,7 +29,20 @@ def start():
     l2 = Label(signdisplayerframe, text="")
     l2.grid(row=0, column=0)
 
-    Button(root, text="Back", font=ButtonFont, padx=40, border=4, command=main).pack()
+    # Audio Frame
+    inputframe = LabelFrame(root, text="Audio")
+    inputframe.pack(fill=BOTH)
+
+    global micLabel
+    micLabel = Image.open('../Project File/mic.png')
+    micLabel = micLabel.resize((50, 80), Image.ANTIALIAS)
+    micLabel = ImageTk.PhotoImage(micLabel)
+    b = Button(inputframe, image=micLabel, command=lambda: speech(signdisplayerframe), bg='red',
+               activebackground='#00ff00',
+               height=80, width=60, border=4)
+    b.pack()
+
+    Button(root, text="Back", bg='#6dd5ff', activebackground='#6dd5ff',padx=40, font=ButtonFont, border=4, command=main).pack(pady=20)
 
 
 def main():
@@ -62,9 +64,9 @@ def main():
     openningLogo = ImageTk.PhotoImage(openningLogo)
     c.create_image(600, 100, image=openningLogo, anchor='nw')
 
-    b1 = Button(root, text='About', font=ButtonFont, padx=40, border=4)
-    b2 = Button(root, text='Start', font=ButtonFont, command=start, padx=40, border=4)
-    b3 = Button(root, text='Credits', font=ButtonFont, padx=40, border=4)
+    b1 = Button(root, text='About', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', padx=40, border=4)
+    b2 = Button(root, text='Start', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', command=start, padx=40, border=4)
+    b3 = Button(root, text='Credits', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', padx=40, border=4)
 
     c.create_window(200, 600, window=b1, anchor='nw')
     c.create_window(670, 600, window=b2, anchor='nw')
