@@ -12,3 +12,5 @@ def speech(signdisplayerframe):
             conversionaction(text, signdisplayerframe)
         except sr.UnknownValueError:
             messagebox.showerror("Error", "No audio received")
+        except FileNotFoundError:
+            messagebox.showinfo('Error', 'Numerical value not allowed')
