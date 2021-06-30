@@ -5,18 +5,21 @@ from speechModule import speech
 
 root = Tk()
 root.title("Text to Sign Language Converter")
+# root.attributes('-fullscreen', True)
 root.state("zoomed")
 root.geometry('1200x700')
 
 # All fonts used
 ButtonFont = Font(family="Helvetica", size="18", weight="normal")
 LabelFont = Font(family="Microsoft New Tai Lue", size="12", weight="normal")
-TextFont = Font(family="Helvetica", size="30", weight="normal")
-
+TextFont = Font(family="Helvetica", size="31", weight="bold")
+TextFont2 = Font(family="Helvetica", size="16", weight="normal")
+TextFont3 = Font(family="Helvetica", size="23", weight="normal")
 
 micLabel = None
 bg = None
-openningLogo = None
+Logo = None
+heartLogo = None
 
 
 def start():
@@ -49,28 +52,40 @@ def main():
     for widgets in root.winfo_children():
         widgets.destroy()
     global bg
-    bg = Image.open("../Project File/background.jpg")
-    bg = bg.resize((1600, 800), Image.ANTIALIAS)
+    bg = Image.open("background.jpg")
+    bg = bg.resize((1150, 800), Image.ANTIALIAS)
     bg = ImageTk.PhotoImage(bg)
-    c = Canvas(root, width=1200, height=700)
+    c = Canvas(root, width=1600, height=800)
     c.pack(fill=BOTH, expand=True)
 
     c.create_image(0, 0, image=bg, anchor='nw')
-    c.create_text(800, 370, text='Audio to Sign Language Converter', font=TextFont)
+    c.create_text(450, 200, text='Audio to Sign Language Translator', font=TextFont, fill='white')
+    c.create_rectangle(170, 230, 500, 235, outline='white', fill='white')
+    c.create_text(110, 300, text='Indian Sign Language(ISL) is used in the deaf community all over India. '
+                                 '\nBut ISL is not used in deaf schools to teach deaf children. Teacher training '
+                                 '\nprograms do not orient teachers towards teaching methods that use ISL. '
+                                 '\nThere is no teaching material that incorporates sign language.', font=TextFont2, fill='white', anchor='nw')
+    c.create_text(110, 450, text='This translator is based on Indian Sign Language(ISL) which can be used for '
+                                 '\ntraining the people learning the sign language. The system is currently designed '
+                                 '\nfor one to one communication of people who understands sign to people who don\'t.', anchor='nw', font=TextFont2, fill='white')
+    c.create_rectangle(1100, 0, 1800, 800, outline='#1c1c1c', fill='#1c1c1c')
 
-    global openningLogo
-    openningLogo = Image.open("../Project File/NielitLogo.jpg")
-    openningLogo = openningLogo.resize((300, 180), Image.ANTIALIAS)
-    openningLogo = ImageTk.PhotoImage(openningLogo)
-    c.create_image(600, 100, image=openningLogo, anchor='nw')
+    global Logo
+    Logo = Image.open("NielitLogo.png")
+    Logo = Logo.resize((230, 150), Image.ANTIALIAS)
+    Logo = ImageTk.PhotoImage(Logo)
+    c.create_image(1210, 100, image=Logo, anchor='nw')
 
-    b1 = Button(root, text='About', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', padx=40, border=4)
-    b2 = Button(root, text='Start', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', command=start, padx=40, border=4)
-    b3 = Button(root, text='Credits', font=ButtonFont, bg='#6dd5ff', activebackground='#6dd5ff', padx=40, border=4)
+    c.create_text(1240, 350, text='Made with', font=TextFont3, anchor='nw', fill='white')
+    global heartLogo
+    heartLogo = Image.open("../Project File/heartLogo.png")
+    heartLogo = heartLogo.resize((70, 70), Image.ANTIALIAS)
+    heartLogo = ImageTk.PhotoImage(heartLogo)
+    c.create_image(1380, 330, image=heartLogo, anchor='nw')
+    c.create_text(1240, 385, text='by the students of\nNIELIT Agartala Centre', font=TextFont2, anchor='nw', fill='white')
 
-    c.create_window(200, 600, window=b1, anchor='nw')
-    c.create_window(670, 600, window=b2, anchor='nw')
-    c.create_window(1140, 600, window=b3, anchor='nw')
+    b = Button(root, text='Start', font=ButtonFont, bg='#34c9eb', activebackground='#34c9eb', command=start, padx=20, border=5)
+    c.create_window(1275, 600, window=b, anchor='nw')
 
 
 main()
