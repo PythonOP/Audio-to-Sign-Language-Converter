@@ -11,7 +11,7 @@ root.geometry('1200x700')
 # All fonts used
 ButtonFont = Font(family="Helvetica", size="18", weight="normal")
 LabelFont = Font(family="Microsoft New Tai Lue", size="12", weight="normal")
-TextFont = Font(family="Microsoft New Tai Lue", size="30", weight="bold")
+TextFont = Font(family="Helvetica", size="30", weight="normal")
 
 
 micLabel = None
@@ -42,7 +42,7 @@ def start():
                height=80, width=60, border=4)
     b.pack()
 
-    Button(root, text="Back", bg='#6dd5ff', activebackground='#6dd5ff',padx=40, font=ButtonFont, border=4, command=main).pack(pady=20)
+    Button(root, text="Back", bg='#6dd5ff', activebackground='#6dd5ff', padx=40, font=ButtonFont, border=4, command=main).pack(pady=20)
 
 
 def main():
