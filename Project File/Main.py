@@ -26,14 +26,15 @@ def start():
     for widgets in root.winfo_children():
         widgets.destroy()
 
+    root.configure(bg='#1c1c1c')
     # Sign Frame
-    signdisplayerframe = LabelFrame(root, text="Sign Language")
+    signdisplayerframe = LabelFrame(root, text="Sign Language", bg='#1c1c1c', fg='white')
     signdisplayerframe.pack(fill=BOTH, expand=1)
     l2 = Label(signdisplayerframe, text="")
     l2.grid(row=0, column=0)
 
     # Audio Frame
-    inputframe = LabelFrame(root, text="Audio")
+    inputframe = LabelFrame(root, text="Audio", bg='#1c1c1c', fg='white')
     inputframe.pack(fill=BOTH)
 
     global micLabel
@@ -53,9 +54,9 @@ def main():
         widgets.destroy()
     global bg
     bg = Image.open("background.jpg")
-    bg = bg.resize((1150, 800), Image.ANTIALIAS)
+    bg = bg.resize((1350, 900), Image.ANTIALIAS)
     bg = ImageTk.PhotoImage(bg)
-    c = Canvas(root, width=1600, height=800)
+    c = Canvas(root, width=1600, height=900)
     c.pack(fill=BOTH, expand=True)
 
     c.create_image(0, 0, image=bg, anchor='nw')
@@ -68,7 +69,7 @@ def main():
     c.create_text(110, 450, text='This translator is based on Indian Sign Language(ISL) which can be used for '
                                  '\ntraining the people learning the sign language. The system is currently designed '
                                  '\nfor one to one communication of people who understands sign to people who don\'t.', anchor='nw', font=TextFont2, fill='white')
-    c.create_rectangle(1100, 0, 1800, 800, outline='#1c1c1c', fill='#1c1c1c')
+    c.create_rectangle(1100, 0, 1800, 900, outline='#1c1c1c', fill='#1c1c1c')
 
     global Logo
     Logo = Image.open("NielitLogo.png")
